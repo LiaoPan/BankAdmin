@@ -1,0 +1,64 @@
+<div ba-panel ba-panel-title="签约账户列表" ba-panel-class="with-scroll" class="horizontal-scroll">
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr class="black-muted-bg">
+                <th class="align-center">序号</th>
+                <th class="align-center">账号</th>
+                <th class="align-center">账户类型</th>
+
+                <th class="align-center">币种</th>
+
+                <th class="align-center">账户开户行</th>
+                <th class="align-center">账户单笔限额</th>
+                <th class="align-center">账户日累计限额</th>
+                <th class="align-center">签约方式</th>
+                <th class="align-center">操作</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="acc in accountInfo" class="editable-row">
+                <td>
+                    {{$index+1}}
+                </td>
+
+                <td>62173745698521</td>
+                <td>活期存款</td>
+                <td>CNY</td>
+                <td>北京市怀柔区某某某银行营业点</td>
+                <td>
+                    <span editable-text="acc.upperLimitPerTransaction" e-name="upperLimitPerTransaction" e-form="rowform" e-required>
+                    {{ acc.upperLimitPerTransaction || '999,999,999,999' }}
+                    </span>
+                </td>
+                <td>
+                    <span editable-text="acc.upperLimitPerDay" e-name="upperLimitPerDay" e-form="rowform" e-required>
+                    {{ acc.upperLimitPerDay || '999,999,999,999' }}
+                    </span>
+                </td>
+                <td>柜台签约</td>
+
+
+                <td>
+                    <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == acc">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+          提交
+        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+          取消
+        </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">修改</button>
+                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeAccount($index)">删除</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </br>
+    <div class="add-row-editable-table">
+        <button class="btn btn-primary" ng-click="addAccount()">新增</button>
+    </div>
+
+</div>

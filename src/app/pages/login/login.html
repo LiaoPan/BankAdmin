@@ -1,0 +1,31 @@
+<main class="auth-main">
+    <div class="auth-block">
+        <h1>银行管理系统</h1>
+        <!--href="reg.html"-->
+        <a class="auth-link">欢迎使用银行管理系统</a>
+
+        <form class="form-horizontal" ng-controller="LoginPageCtrl">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">柜员编码</label>
+
+                <div class="col-sm-10">
+                    <input class="form-control" id="inputEmail3" name="username" ng-model="data.username" placeholder="柜员编码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="password" ng-model="data.password" placeholder="密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default btn-auth" ng-click="login()">登录</button>
+                    <a href class="forgot-pass">忘记密码?</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</main>

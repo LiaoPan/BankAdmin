@@ -1,0 +1,110 @@
+<div ba-panel ba-panel-title="客户网银信息" ba-panel-class="with-scroll" class="horizontal-scroll">
+    <table class="table table-bordered table-hover table-condensed">
+        <!--<thead>
+            <tr class="black-muted-bg">
+                <th class="browser-icons"></th>
+                <th>Browser</th>
+                <th class="align-right">Visits</th>
+                <th class="table-arr"></th>
+                <th class="align-right">Purchases</th>
+                <th class="table-arr"></th>
+                <th class="align-right">%</th>
+                <th class="table-arr"></th>
+            </tr>
+        </thead>-->
+        <tbody>
+            <!--<tr ng-repeat="item in metricsTableData" class="no-top-border">
+                <td><img ng-src="{{::( item.image | appImage )}}" width="20" height="20"></td>
+                <td ng-class="nowrap">{{item.browser}}</td>
+                <td class="align-right">{{item.visits}}</td>
+                <td class="table-arr"><i ng-class="{'icon-up': item.isVisitsUp, 'icon-down': !item.isVisitsUp }"></i></td>
+                <td class="align-right">{{item.purchases}}</td>
+                <td class="table-arr"><i ng-class="{'icon-up': item.isPurchasesUp, 'icon-down': !item.isPurchasesUp }"></i></td>
+                <td class="align-right">{{item.percent}}</td>
+                <td class="table-arr"><i ng-class="{'icon-up': item.isPercentUp, 'icon-down': !item.isPercentUp }"></i></td>
+            </tr>-->
+
+            <tr>
+                <td class="black-muted-bg">客户号:</td>
+                <td class="align-right">{{userInfo.user_id}}</td>
+                <td class="black-muted-bg">客户名称:</td>
+                <td class="align-right">{{userInfo.nickname}}</td>
+            </tr>
+
+            <tr>
+                <td class="black-muted-bg">签约日期:</td>
+                <td class="align-right">{{userInfo.sign_date|date:'yyyy-MM-dd'}}</td>
+                <td class="black-muted-bg">网银签约机构:</td>
+                <td class="align-right">{{userInfo.institution}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<!--<input type="text" class="form-control" id="input04" placeholder="With help">-->
+
+<div ba-panel ba-panel-title="客户网银信息" ba-panel-class="with-scroll" class="horizontal-scroll">
+    <table class="table table-bordered table-hover table-condensed">
+        <tr>
+            <td>企业证件类型:</td>
+            <td>{{userInfo.certificate_type}}</td>
+            <td>企业证件号码:</td>
+            <td>{{userInfo.certificate_num}}</td>
+        </tr>
+
+        <tr>
+            <td>经办人姓名:</td>
+            <td>{{userInfo.user_name}}</td>
+            <td>经办人证件号码:</td>
+            <td>{{user_name.usrid}}</td>
+        </tr>
+
+        <tr>
+            <td>企业地址:</td>
+            <td colspan=3>
+                <span editable-text="userInfo.address" e-name="address" e-form="rowform" e-required>
+                    {{ userInfo.address || 'empty' }}
+                </span>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>邮政编码:</td>
+            <td>
+                <span editable-text="userInfo.postcode" e-form="rowform" e-required>
+                    {{ userInfo.postcode || 'empty' }}
+                </span>
+            </td>
+            <td>联系电话:</td>
+            <td>
+                <span editable-text="userInfo.tel" e-form="rowform" e-required>
+                    {{ userInfo.tel || 'empty' }}
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>客户经理编号:</td>
+            <td></td>
+            <td>客户经理姓名:</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <!--modified the content of table-->
+    <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == usersInfo">
+        <button type="submit" style="width:80px" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button ">
+          提交
+        </button>
+        <button type="button" style="width:80px" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-danger editable-table-button">
+          取消
+        </button>
+    </form>
+
+    <div class="buttons" ng-show="!rowform.$visible">
+        <button class="btn btn-primary " style="width:80px" ng-click="rowform.$show()">修改</button>
+        <button class="btn btn-danger " style="width:80px" ng-click="backhome()">返回</button>
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div ba-panel ba-panel-class="with-scroll">
+    <!--Animation-->
+    <form ng-controller="openEnterpriseAccountCtrl as selectpickerVm">
+
+        <div class="form-group">
+            <label for="exampleInput">* 证件类型:</label>
+            <ui-select on-select="onSelect($select.selected, $model)"  ng-model="selectpickerVm.selectedItem.selected" class="btn-group bootstrap-select form-control" ng-disabled="false" append-to-body="true" search-enabled="false">
+                <ui-select-match placeholder="请选择证件类型">
+                    <span> {{$select.selected.label}}</span>
+                </ui-select-match>
+                <ui-select-choices repeat="standardItem in selectpickerVm.standardSelectItems | filter: $select.search">
+                    <span ng-bind-html="standardItem.label"></span>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInput">* 证件号码:</label>
+            <input type="text" class="form-control" id="InputNumber" ng-model='enIDnumber' placeholder="证件号码">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInput">户名:</label>
+            <input type="text" class="form-control" id="InputName" placeholder="户名">
+        </div>
+
+        <button type="submit" class="btn btn-danger" ng-click="search()">查询</button>
+    </form>
+
+    <br>
+    <div ui-view></div>
+</div>

@@ -1,0 +1,23 @@
+prerequisites:
+nodejs:https://nodejs.org
+-------------------------
+
+#1.Ubuntu下运行方法
+Install dependecy:
+$cd BamkAdmin
+$npm install
+
+-------------------------
+Run in development mode:
+$ gulp serve
+
+Run in Production mode:
+$ gulp serve:dist
+
+#2.windows下安装方法
+1.进入BankAdmin文件夹
+2.按window+R键，输入cmd,调出命令行终端
+
+3.在终端输入如下代码：
+$ gulp serve
+

@@ -1,0 +1,24 @@
+<div ba-panel ba-panel-class="with-scroll">
+    <form ng-controller="usrloggingCtrl">
+
+        <div class="form-group">
+            <label for="exampleInput">* 起始日期:</label>
+            <input type="text" class="form-control" id="InputNumber" ng-model="data.initime" placeholder="" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInput">* 终止日期:</label>
+            <input type="text" class="form-control" id="InputNumber" ng-model="data.endtime" placeholder="" required>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInput">* 柜员号:</label>
+            <input type="text" class="form-control" id="InputNumber" ng-model="data.countername" placeholder="" required>
+        </div>
+
+        <button type="submit" class="btn btn-danger"  ng-disabled="!data.initime||!data.endtime||!data.countername" ng-click="searchClick()">查询</button>
+    </form>
+    <br>
+    <div ui-view></div>
+</div>

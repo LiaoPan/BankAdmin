@@ -1,0 +1,121 @@
+<div ba-panel ba-panel-title="基本资料" ba-panel-class="with-scroll" class="horizontal-scroll">
+    <table class="table table-bordered table-hover ">
+        <!--<thead>
+            <tr class="black-muted-bg">
+                <th class="browser-icons"></th>
+                <th>Browser</th>
+                <th class="align-right">Visits</th>
+                <th class="table-arr"></th>
+                <th class="align-right">Purchases</th>
+                <th class="table-arr"></th>
+                <th class="align-right">%</th>
+                <th class="table-arr"></th>
+            </tr>
+        </thead>-->
+        <tbody>
+            <!--<tr ng-repeat="item in metricsTableData" class="no-top-border">
+                <td><img ng-src="{{::( item.image | appImage )}}" width="20" height="20"></td>
+                <td ng-class="nowrap">{{item.browser}}</td>
+                <td class="align-right">{{item.visits}}</td>
+                <td class="table-arr"><i ng-class="{'icon-up': item.isVisitsUp, 'icon-down': !item.isVisitsUp }"></i></td>
+                <td class="align-right">{{item.purchases}}</td>
+                <td class="table-arr"><i ng-class="{'icon-up': item.isPurchasesUp, 'icon-down': !item.isPurchasesUp }"></i></td>
+                <td class="align-right">{{item.percent}}</td>
+                <td class="table-arr"><i ng-class="{'icon-up': item.isPercentUp, 'icon-down': !item.isPercentUp }"></i></td>
+            </tr>-->
+
+            <tr>
+                <td>客户号:</td>
+                <td>{{userInfo.user_id}}</td>
+                <td>客户名称:</td>
+                <td>{{userInfo.nickname}}</td>
+            </tr>
+
+            <!--<tr>
+                <td>客户姓名:</td>
+                <td>{{userInfo.user_name}}</td>
+                <td>客户名称(英文或拼音):</td>
+                <td>{{userInfo.name_en}}</td>
+            </tr>-->
+
+            <tr>
+                <td>企业证件类型:</td>
+                <td>{{userInfo.certificate_type}}</td>
+                <td>企业证件号码:</td>
+                <td>{{userInfo.certificate_num}}</td>
+            </tr>
+
+            <tr>
+                <td>*企业地址</td>
+                <td colspan=3>{{ userInfo.address }}</td>
+            </tr>
+
+            <tr>
+                <td>电子邮箱:</td>
+                <td>{{userInfo.email}}</td>
+                <td>*邮政编码:</td>
+                <td>{{userInfo.postcode}}</td>
+            </tr>
+
+            <tr>
+                <td>联系电话:</td>
+                <td>{{userInfo.tel}}</td>
+                <td>传真:</td>
+                <td>{{userInfo.fox}}</td>
+            </tr>
+
+            <tr>
+                <td>经办人姓名:</td>
+                <td>{{userInfo.usr_id}}</td>
+                <td>经办人联系电话:</td>
+                <td> {{userInfo.usr_tel}}</td>
+            </tr>
+
+
+            <tr>
+                <td>客户经理编号:</td>
+                <td>{{userInfo.manager_id}}</td>
+                <td>客户经理姓名:</td>
+                <td> {{userInfo.manager_name}}</td>
+            </tr>
+
+            <tr>
+                <td>网银签约日期:</td>
+                <td>{{userInfo.create_account_date|date:'yyyy-MM-dd'}}</td>
+                <td>网银状态:</td>
+                <td>{{userInfo.ebank_state}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<!--<div ba-panel ba-panel-title="签约账户列表" ba-panel-class="with-scroll" class="horizontal-scroll">
+    <table class="table table-bordered table-hover ">
+        <thead>
+            <tr class="black-muted-bg">
+
+                <th class="align-center">账号</th>
+                <th class="align-center">账户类型</th>
+
+                <th class="align-center">币种</th>
+
+                <th class="align-center">账户开户行</th>
+                <th class="align-center">签约方式</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{userInfo.account_id}}</td>
+                <td>{{userInfo.account_type}}</td>
+                <td>{{userInfo.currency}}</td>
+                <td>{{userInfo.institution}}</td>
+                <td>{{userInfo.sign_type}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>-->
+
+<button class="btn btn-danger" ng-click="baseInfoModifiedClick()">企业信息更新</button>

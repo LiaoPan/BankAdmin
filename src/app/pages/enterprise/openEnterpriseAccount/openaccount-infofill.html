@@ -1,0 +1,154 @@
+<div ng-controller="enterpriseInfoFillCtrl" ba-panel ba-panel-title="客户网银信息" ba-panel-class="with-scroll" class="horizontal-scroll">
+    <table class="table table-bordered table-hover table-condensed">
+
+
+        <tr>
+            <td>客户号:</td>
+            <td>
+                {{userInfo.user_id}}
+            </td>
+            <td>客户名称:</td>
+            <td>
+                <span editable-text="userInfo.nickname" onaftersave="submitinfo()" e-form="rowform" e-required>
+                {{userInfo.nickname||'empty'}}
+                </span>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>企业证件类型:</td>
+            <td>{{ enIDtype}}</td>
+            <td>企业证件号码:</td>
+            <td>{{enIDnumber}}</td>
+        </tr>
+
+
+        <tr>
+            <td>手机号码:</td>
+            <td>
+                <span editable-text="userInfo.phone" e-form="rowform" e-required>
+                    {{userInfo.phone||'empty'}}
+                </span>
+            </td>
+            <td>电子邮箱:</td>
+            <td>
+                <span editable-text="userInfo.email" e-form="rowform" e-required>
+                    {{userInfo.email||'empty'}}
+                </span>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>联系地址:</td>
+            <td>
+                <span editable-text="usersInfo.address" e-name="address" e-form="rowform" e-required>
+                    {{ usersInfo.address || 'empty' }}
+                </span>
+            </td>
+            <td>传真:</td>
+            <td>
+                <span editable-text="usersInfo.fox" e-form="rowform" e-required>
+                    
+                </span>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>*邮政编码:</td>
+            <td>
+                <span editable-text="userInfo.postcode" e-form="rowform" e-required>
+                    {{userInfo.postcode||'empty'}}
+                </span>
+            </td>
+            <td>*企业地址:</td>
+            <td>
+                <span editable-text="userInfo.address" e-form="rowform" e-required>
+                    {{userInfo.tel||'empty'}}
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>经办人姓名:</td>
+            <td>
+                <span editable-text="userInfo.usrname" e-form="rowform" e-required>
+                    {{userInfo.usrname||'empty'}}
+                </span>
+            </td>
+            <td>联系电话:</td>
+            <td>
+                <span editable-text="userInfo.tel" e-form="rowform" e-required>
+                    {{userInfo.tel||'empty'}}
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>经办人证件类型:</td>
+            <td>
+                <span editable-text="userInfo.accounttype" e-form="rowform" e-required>
+                    {{userInfo.accounttype||'empty'}}
+                </span>
+            </td>
+            <td>经办人证件号码:</td>
+            <td>
+                <span editable-text="userInfo.usrid" e-form="rowform" e-required>
+                    {{userInfo.usrid||'empty'}}
+                </span>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>客户经理编号:</td>
+            <td>
+                <span editable-text="userInfo.manage_id" e-form="rowform" e-required>
+                    {{userInfo.manage_id||'empty'}}
+                </span>
+            </td>
+            <td>客户经理姓名:</td>
+            <td>
+                <span editable-text="userInfo.manage_name" e-form="rowform" e-required>
+                    {{userInfo.manage_name||'empty'}}
+                </span>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>网银签约日期:</td>
+            <td>
+
+                {{ create_account_date |date:'yyyy-MM-dd'}}
+
+            </td>
+            <td>*网银状态:</td>
+            <td>
+                <span editable-select="usersInfo.ebank_state" e-form="rowform" e-ng-options="e.value as e.text for e in ebank_states" e-required>
+                    {{ showEbankState()}}
+                </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <!--modified the content of table-->
+    <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == usersInfo">
+        <button type="submit" style="width:80px" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button ">
+          提交
+        </button>
+        <button type="button" style="width:80px" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-danger editable-table-button">
+          取消
+        </button>
+    </form>
+
+    <div class="buttons" ng-show="!rowform.$visible">
+        <button class="btn btn-primary " style="width:80px" ng-click="rowform.$show()">修改</button>
+        <button class="btn btn-danger " style="width:80px" ng-click="removeUser($index)">返回</button>
+    </div>
+
+</div>
